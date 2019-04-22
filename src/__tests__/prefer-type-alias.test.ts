@@ -5,6 +5,10 @@ const ruleTester = new RuleTester({
   parser: "@typescript-eslint/parser"
 });
 
+const expectedErrors = [
+  { message: "Use a type alias instead of an interface." }
+];
+
 // @ts-ignore
 ruleTester.run("prefer-type-alias", preferTypeAlias, {
   valid: [
@@ -15,19 +19,26 @@ ruleTester.run("prefer-type-alias", preferTypeAlias, {
   invalid: [
     {
       code: "interface A { a: string; }",
-      errors: [
-        {
-          message: "Prefer type alias."
-        }
-      ]
+      output: "type A = { a: string; }",
+      errors: expectedErrors
     },
     {
       code: "interface A extends B { a: string; }",
-      errors: [
-        {
-          message: "Prefer type alias."
-        }
-      ]
+      output: "type A = { a: string; } & B",
+      errors: expectedErrors
+    },
+    {
+      code: `
+export interface W<T> {
+    x: T,
+};
+`,
+      output: `
+export type W<T> = {
+    x: T,
+};
+`,
+      errors: expectedErrors
     }
   ]
 });

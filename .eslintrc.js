@@ -9,8 +9,11 @@ module.exports = {
     "prettier/@typescript-eslint"
   ],
   rules: {
+    "no-unused-vars": "off",
     "arrow-body-style": ["error", "as-needed"],
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/prefer-interface": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 };

@@ -20,15 +20,15 @@ type A = { a: string };
 type A = { a: string } & { b: number };
 
 type A = { a: string } & B & C;
-
-interface A extends B {
-  a: string;
-}
 ```
 
 ```js
 // incorrect
 interface A {
+  a: string;
+}
+
+interface A extends B {
   a: string;
 }
 ```

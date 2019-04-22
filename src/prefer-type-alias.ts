@@ -11,9 +11,7 @@ export const preferTypeAlias = {
 
   create: (context: any) => ({
     TSInterfaceDeclaration: (node: any) => {
-      if (!node.extends) {
-        context.report({ node, message: "Prefer type alias." });
-      }
+      context.report({ node, message: "Prefer type alias." });
     }
   })
 };

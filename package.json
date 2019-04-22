@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-prefer-type-alias",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Prefer a type alias over an interface declaration in TypeScript.",
   "repository": "ssh://git@github.com/otofu-square/eslint-plugin-prefer-type-alias.git",
   "author": "Hidemi Yukita <otofu.square@gmail.com>",
